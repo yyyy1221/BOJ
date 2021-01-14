@@ -10,6 +10,7 @@ int main(){
     int P[17] = {0,}; //받을 수 있는 금액
     int result = 0;
 
+    //기간, 금액 입력
     for(int i = 1; i < N+1; i++){
         cin >> T[i] >> P[i] ;
     }
