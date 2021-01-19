@@ -8,13 +8,10 @@ int main(){
     cin>>N>>M>>K;
 
     int team = 0; //팀 개수
-    while(1){
-        if(N+M < K){
-            team--;
-            break;
-        }
-        N-=2;
-        M-=1;
+
+    while(N >= 2 && M >= 1 && N+M >= K + 3){
+        N -= 2;
+        M -= 1;
         team++;
     }
     cout<<team;
