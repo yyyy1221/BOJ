@@ -28,17 +28,23 @@ int main(){
     }
     
     int sum = 0;
+    //입력된 각 숫자를 더한다.
     for(int i = 0; i < 100000; i++){
         if(arr[i] != '\0'){
             sum += arr[i] - '0';
         }
             
     }
+
+    //3의 배수가 아니면 count를 0으로.
     if(sum%3 != 0)
         count = 0;
-    
+
+    //내림차순 정렬
     sort(arr, arr+100000, desc);
+
     for(int i = 0; i < 100000; i++){
+        //3의 배수가 아니거나, 입력 숫자에 0이 없을 때.
         if(count == 0){
             cout<<-1;
             break;
