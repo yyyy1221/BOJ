@@ -2,8 +2,6 @@
 #include <vector>
 using namespace std;
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
     long long N, M, result = 0;
     vector<int> tree;
     cin>>N>>M;
