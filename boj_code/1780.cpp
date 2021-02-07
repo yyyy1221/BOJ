@@ -23,6 +23,7 @@ void solution(int x, int y, int n){
             
         }
     }
+    //다르지 않으면 해당 종이갯수++
     count_paper[arr[x][y] + 1]++;
 }
 
