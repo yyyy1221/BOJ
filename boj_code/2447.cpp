@@ -5,7 +5,7 @@ void solution(int x, int y, int n){
     if(n == 3){
         for(int i = x; i < x + n; i++){
             for(int j = y; j < y + n; j++){
-                if(i%3 != 1 || j%3 != 1){
+                if(i%3 != 1 || j%3 != 1){ //가운데를 비워놓고 나머지 true.
                     star[i][j] = true;
                 }
             }
@@ -15,7 +15,7 @@ void solution(int x, int y, int n){
         int k = n/3;
         for(int a = 0; a < 3; a++){
             for(int b = 0; b < 3; b++){
-                if(a != 1 || b != 1){
+                if(a != 1 || b != 1){ //둘다 1일때만 빼고 재귀호출.
                     solution(x+a*k, y+b*k, k);
                 }
             }
