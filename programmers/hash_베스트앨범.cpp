@@ -42,9 +42,12 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
     for(int i = 0; i < vec.size(); i++){
         for(int j = 0; j < genres.size(); j++){
             if(vec[i].first == genres[j]){
-                arr->push_back(make_pair(plays[j], j));
+                arr[i].push_back(make_pair(plays[j], j));
             }
         }
+    }
+    for(int i = 0; i < vec.size(); i++){
+        sort(arr[i].begin(), arr[i].end(), cmparr);
     }
 
     for(int i = 0; i < vec.size(); i++){
