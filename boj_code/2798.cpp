@@ -1,34 +1,34 @@
 #include <iostream>
-#include <cstdlib>
-#include <math.h> 
-
+#include <algorithm>
+#include <vector>
 using namespace std;
 int main(){
     int N, M;
-    cin>>N>>M;
-    int *arr_N = new int[N];
-    int num = N*(N-1)*(N-2)/6; 
-    int *arr = new int[num]; //경우의 수
+    vector<int> v;
+    vector<int> check;
+    int tmp;
+    int sum = 0;
     int result = 0;
-    int abs_num = INFINITY;
-    
+    cin>>N>>M;
     for(int i = 0; i < N; i++){
-        cin>>arr_N[i];
+        cin>>tmp;
+        v.push_back(tmp);
     }
-    int i = 0;
-    for(int x = 0; x < N-2; x++){
-        for(int y = x+1; y < N-1; y++){
-            for(int z = y+1; z < N; z++, i++){
-                arr[i] = arr_N[x] + arr_N[y] + arr_N[z];
-            }
+    for(int i = 0; i < N - 3; i++){
+        check.push_back(0);
+    }
+    for(int i = 0; i < 3; i++){
+        check.push_back(1);
+    }
+    do{
+        for(int i = 0; i < N; i++){
+            // cout<<check[i]<<" ";
+            if(check[i] == 1) sum +=v[i];
         }
-    }
-    for(int i = 0; i < num; i++){
-        if(arr[i] < M && abs(M-arr[i]) <= abs_num){
-            abs_num = abs(M-arr[i]);
-            result = arr[i];
-        }
-    }
+        // cout<<endl;
+        if(sum <= M) result = max(result, sum);
+        sum = 0;
+    }while(next_permutation(check.begin(), check.end()));
+
     cout<<result;
-    return 0;
 }
